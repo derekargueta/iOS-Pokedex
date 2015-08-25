@@ -15,6 +15,8 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
 @property (weak, nonatomic) IBOutlet UILabel *openTextLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *pokedexCover;
 
+@property Pokemon *selected;
+
 // Runs the animation for "opening" the pokedex
 - (void)openPokedex;
 
@@ -27,7 +29,8 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  
+    self.selected = nil;
     pokeTable = [[UITableView alloc] init];
     pokeTable.frame = CGRectMake(10, 270, 140, 310);
     pokeTable.dataSource = self;
@@ -38,7 +41,7 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
     [self.view addSubview:pokeTable];
     
     pokeView = [[UIImageView alloc] init];
-    pokeView.frame = CGRectMake(200, 270, 150, 230);
+    pokeView.frame = CGRectMake(190, 320, 200, 200);
     [pokeView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:pokeView];
   
@@ -61,16 +64,27 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
 }
 
 - (void)openPokedex {
+  NSLog(@"open pokedex called");
     [UIView animateWithDuration:0.2 animations:^{
         self.pokedexCover.frame = CGRectMake(self.pokedexCover.frame.size.width, self.pokedexCover.frame.origin.y, 0, self.pokedexCover.frame.size.height);
         self.openTextLabel.hidden = YES;
+    } completion:^(BOOL complete) {
+      self.pokedexCover.hidden = YES;
+      if(self.selected) {
+        self.openTextLabel.text = [NSString stringWithFormat:@"height: %i   weight: %i", self.selected.height, self.selected.weight];
+        self.openTextLabel.hidden = NO;
+      }
     }];
 }
 
 - (void)closePokedex {
+  NSLog(@"close pokedex called");
+    self.pokedexCover.frame = CGRectMake(self.view.frame.size.width, self.pokedexCover.frame.origin.y, 0, self.pokedexCover.frame.size.height);
+    self.pokedexCover.hidden = NO;
     [UIView animateWithDuration:0.2 animations:^{
         self.pokedexCover.frame = CGRectMake(0, self.pokedexCover.frame.origin.y, self.view.frame.size.width, self.pokedexCover.frame.size.height);
         self.openTextLabel.hidden = NO;
+        self.openTextLabel.text = @"Swipe right to open the Pokedex";
     }];
 }
 
@@ -111,6 +125,8 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  tmp.img = [UIImage imageWithData:(NSData *)responseObject];
                  pokeView.image = tmp.img;
+               self.openTextLabel.text = [NSString stringWithFormat:@"height: %i   weight: %i", tmp.height, tmp.weight];
+               self.openTextLabel.hidden = NO;
              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"Error: %@", error);
                  // TODO - display a "not available" image
@@ -119,7 +135,10 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
     } else {
         NSLog(@"using cached image");
         pokeView.image = tmp.img;
+        self.openTextLabel.text = [NSString stringWithFormat:@"height: %i   weight: %i", tmp.height, tmp.weight];
+        self.openTextLabel.hidden = NO;
     }
+  self.selected = tmp;
 }
 
 @end
