@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PokedexMainViewController.h"
 
 @interface ViewController : UIViewController
 
