@@ -26,6 +26,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    pokeTable = [[UITableView alloc] init];
+    pokeTable.frame = CGRectMake(10, 270, 320, 230);
+    pokeTable.dataSource = self;
+    pokeTable.delegate = self;
+    pokeTable.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [pokeTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [pokeTable reloadData];
+    [self.view addSubview:pokeTable];
+    
     // set up swipe-right to open the pokedex
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(openPokedex)];
@@ -39,6 +48,8 @@
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.wallpaper setUserInteractionEnabled:YES];
     [self.wallpaper addGestureRecognizer:swipeLeft];
+    
+    [self.view bringSubviewToFront:self.pokedexCover];
 }
 
 - (void)openPokedex {
@@ -53,6 +64,33 @@
         self.pokedexCover.frame = CGRectMake(0, self.pokedexCover.frame.origin.y, self.view.frame.size.width, self.pokedexCover.frame.size.height);
         self.openTextLabel.hidden = NO;
     }];
+}
+
+#pragma mark - TableView DataSource Implementation
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[AppDelegate getList] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.backgroundView = [[UIView alloc] init];
+    [cell.backgroundView setBackgroundColor:[UIColor clearColor]];
+//    [[[cell contentView] subviews] makeObjectsPerformSelector:@selector]
+    
+    
+    Pokemon *tmpPoke = (Pokemon *)[[AppDelegate getList] objectAtIndex:[indexPath row] + 1];
+    cell.textLabel.text = tmpPoke.name;
+    
+    NSLog(@"grabbin name %@", tmpPoke.name);
+    
+    return cell;
 }
 
 @end
