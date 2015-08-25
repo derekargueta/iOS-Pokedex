@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1VD-Qq-vot">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,9 +20,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokedex_closed" translatesAutoresizingMaskIntoConstraints="NO" id="qoz-JG-Pye">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="DbN-3a-z1F" appends="YES" id="NKk-PJ-R0w"/>
-                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe right to open the Pokedex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXx-R4-5PC">
                                 <rect key="frame" x="65" y="530" width="277" height="21"/>
@@ -46,17 +43,27 @@
                             <constraint firstAttribute="centerY" secondItem="qoz-JG-Pye" secondAttribute="centerY" id="v4s-zz-4AH"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qoz-JG-Pye" secondAttribute="bottom" id="zjg-PB-QJ3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8c0-ZA-a7E"/>
+                                <exclude reference="v4s-zz-4AH"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="bfl-gJ-M5K"/>
+                    <connections>
+                        <outlet property="openTextLabel" destination="WXx-R4-5PC" id="L7E-x1-SIc"/>
+                        <outlet property="wallpaper" destination="qoz-JG-Pye" id="Ita-Bv-Trp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="DbN-3a-z1F"/>
             </objects>
-            <point key="canvasLocation" x="343" y="284"/>
+            <point key="canvasLocation" x="1155" y="284"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bhm-Jv-PEm">
             <objects>
-                <viewController id="WEm-bU-bAF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="poke-main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WEm-bU-bAF" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Kn-lO-N53"/>
                         <viewControllerLayoutGuide type="bottom" id="XWk-CX-meG"/>
@@ -65,16 +72,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokedex_open" translatesAutoresizingMaskIntoConstraints="NO" id="9YJ-mb-ajK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokedex_open" translatesAutoresizingMaskIntoConstraints="NO" id="9YJ-mb-ajK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9YJ-mb-ajK" secondAttribute="trailing" constant="-16" id="YdT-qF-SZj"/>
+                            <constraint firstItem="XWk-CX-meG" firstAttribute="top" secondItem="9YJ-mb-ajK" secondAttribute="bottom" id="c9t-8p-sRt"/>
+                            <constraint firstItem="9YJ-mb-ajK" firstAttribute="top" secondItem="ePl-XS-pdP" secondAttribute="topMargin" id="mVp-my-ELc"/>
+                            <constraint firstItem="9YJ-mb-ajK" firstAttribute="leading" secondItem="ePl-XS-pdP" secondAttribute="leadingMargin" constant="-16" id="naE-7s-VgF"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoJ-Xn-KvG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041" y="284"/>
+            <point key="canvasLocation" x="1853" y="284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lPe-Og-JVU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="1VD-Qq-vot" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dky-Ot-vKw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="7Yb-jU-dAE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txV-Cd-ZxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="284"/>
         </scene>
     </scenes>
     <resources>
