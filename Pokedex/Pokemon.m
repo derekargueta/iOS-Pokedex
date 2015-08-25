@@ -14,7 +14,7 @@
     self = [super init];
     if(!self) return nil;
     
-    self.name = name;
+    self.name = [name stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[name substringToIndex:1] uppercaseString]];
     self.number = num;
     self.height = height;
     self.weight = weight;

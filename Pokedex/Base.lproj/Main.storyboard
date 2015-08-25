@@ -25,7 +25,7 @@
                                 <rect key="frame" x="-9" y="0.0" width="618" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe right to open the Pokedex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXx-R4-5PC">
-                                <rect key="frame" x="65" y="527" width="277" height="21"/>
+                                <rect key="frame" x="65" y="519" width="277" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="S5V-yv-j4N"/>
                                     <constraint firstAttribute="width" constant="277" id="vva-Ob-ez8"/>
@@ -43,7 +43,7 @@
                             <constraint firstItem="qoz-JG-Pye" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-25" id="B8k-W1-WrU"/>
                             <constraint firstItem="13u-nW-5UT" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="BKK-eD-VUq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="13u-nW-5UT" secondAttribute="trailing" constant="-25" id="DGR-9X-Wyw"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WXx-R4-5PC" secondAttribute="bottom" constant="52" id="GSD-Ac-dK9"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WXx-R4-5PC" secondAttribute="bottom" constant="60" id="GSD-Ac-dK9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qoz-JG-Pye" secondAttribute="trailing" constant="-25" id="Gm2-kO-6TD"/>
                             <constraint firstItem="qoz-JG-Pye" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Jni-8l-gfB"/>
                             <constraint firstItem="13u-nW-5UT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-25" id="P0a-EY-EaN"/>

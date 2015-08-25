@@ -32,7 +32,7 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
   
     self.selected = nil;
     pokeTable = [[UITableView alloc] init];
-    pokeTable.frame = CGRectMake(10, 270, 140, 310);
+    pokeTable.frame = CGRectMake(10, 270, 140, 300);
     pokeTable.dataSource = self;
     pokeTable.delegate = self;
     pokeTable.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -104,8 +104,8 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
     
     cell.backgroundView = [[UIView alloc] init];
     [cell.backgroundView setBackgroundColor:[UIColor clearColor]];
-    
-    Pokemon *tmpPoke = (Pokemon *)[[AppDelegate getList] objectAtIndex:[indexPath row] + 1];
+  
+    Pokemon *tmpPoke = (Pokemon *)[[AppDelegate getList] objectAtIndex:[indexPath row]];
     cell.textLabel.text = tmpPoke.name;
     
     NSLog(@"grabbin name %@", tmpPoke.name);
@@ -114,7 +114,7 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Pokemon *tmp = (Pokemon*)[[AppDelegate getList] objectAtIndex:[indexPath row] + 1];
+    Pokemon *tmp = (Pokemon*)[[AppDelegate getList] objectAtIndex:[indexPath row]];
     if(tmp.img == nil) {
         NSLog(@"fetching image");
         // get photo and cache
