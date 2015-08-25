@@ -12,28 +12,6 @@
 
 NSString * const BASE_URL = @"http://pokeapi.co/";
 
-- (id)init:(NSDictionary *)pokedata {
-    self = [super init];
-    if(!self) {
-        return nil;
-    }
-    
-    self.name = (NSString *)[pokedata objectForKey:@"name"];
-    self.detailEndpoint = (NSString *)[pokedata objectForKey:@"resource_uri"];
-    self.number = (int)[[[self.detailEndpoint componentsSeparatedByString:@"/"] objectAtIndex:3] integerValue];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *reqUrl = [NSString stringWithFormat:@"%@media/img/%i.png", BASE_URL, self.number];
-    [manager GET:reqUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"good return: %@", responseObject);
-        self.img = [UIImage imageWithData:(NSData*)responseObject];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-
-    
-    return self;
-}
-
 - (id)init:(NSString *)name number:(int)num height:(int)height weight:(int)weight baseXP:(int)baseXP {
     self = [super init];
     if(!self) return nil;
@@ -44,7 +22,16 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
     self.weight = weight;
     self.baseExperience = baseXP;
     
-    NSLog(@"created pokemon %@", self.name);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:[NSString stringWithFormat:@"%@media/img/%i.png", BASE_URL, self.number]
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             self.img = [UIImage imageWithData:(NSData *)responseObject];
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }
+     ];
     
     return self;
 }

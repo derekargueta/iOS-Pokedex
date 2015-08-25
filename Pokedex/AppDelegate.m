@@ -30,16 +30,14 @@ NSMutableArray *pokeList;
         if([columns count] > 3 && [[columns objectAtIndex:1] rangeOfString:@"-"].location == NSNotFound) {
         NSLog(@"id: %@, name: %@, species ID: %@, height: %@, weight: %@", [columns objectAtIndex:0], [columns objectAtIndex:1], [columns objectAtIndex:2], [columns objectAtIndex:3], [columns objectAtIndex:4]);
             Pokemon *tmpPoke = [[Pokemon alloc] init:[columns objectAtIndex:1]
-                           number:(int)[columns objectAtIndex:2]
-                           height:(int)[columns objectAtIndex:3]
-                           weight:(int)[columns objectAtIndex:4]
-                           baseXP:(int)[columns objectAtIndex:5]];
+                           number:(int)[[columns objectAtIndex:2] integerValue]
+                           height:(int)[[columns objectAtIndex:3] integerValue]
+                           weight:(int)[[columns objectAtIndex:4] integerValue]
+                           baseXP:(int)[[columns objectAtIndex:5] integerValue]];
             [pokeList addObject:tmpPoke];
         }
     }
-    
-//    Netwerker *n = [[Netwerker alloc] init];
-//    [n fetchPokemonList];
+
     return YES;
 }
 

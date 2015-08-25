@@ -12,7 +12,6 @@
 
 @interface Pokemon : NSObject
 
-- (id)init:(NSDictionary *)pokedata;
 - (id)init:(NSString *)name number:(int)num height:(int)height weight:(int)weight baseXP:(int)baseXP;
 
 @property NSString *detailEndpoint;

@@ -27,13 +27,18 @@
     [super viewDidLoad];
     
     pokeTable = [[UITableView alloc] init];
-    pokeTable.frame = CGRectMake(10, 270, 320, 230);
+    pokeTable.frame = CGRectMake(10, 270, 140, 230);
     pokeTable.dataSource = self;
     pokeTable.delegate = self;
     pokeTable.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [pokeTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [pokeTable reloadData];
     [self.view addSubview:pokeTable];
+    
+    pokeView = [[UIImageView alloc] init];
+    pokeView.frame = CGRectMake(200, 270, 150, 230);
+    [pokeView setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:pokeView];
     
     // set up swipe-right to open the pokedex
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self
@@ -91,6 +96,13 @@
     NSLog(@"grabbin name %@", tmpPoke.name);
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"something happening?");
+    Pokemon *tmp = (Pokemon*)[[AppDelegate getList] objectAtIndex:[indexPath row] + 1];
+    NSLog(@"%@", tmp.name);
+    pokeView.image = tmp.img;
 }
 
 @end
