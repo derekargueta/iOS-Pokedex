@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "Netwerker.h"
+#import "Pokemon.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

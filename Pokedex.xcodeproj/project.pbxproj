@@ -15,6 +15,9 @@
 		C9CFD6C91B8C067E00EB5EC3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9CFD6C81B8C067E00EB5EC3 /* Images.xcassets */; };
 		C9CFD6CC1B8C067E00EB5EC3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9CFD6CA1B8C067E00EB5EC3 /* LaunchScreen.xib */; };
 		C9CFD6D81B8C067E00EB5EC3 /* PokedexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CFD6D71B8C067E00EB5EC3 /* PokedexTests.m */; };
+		C9CFD6ED1B8C171D00EB5EC3 /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CFD6EC1B8C171D00EB5EC3 /* Pokemon.m */; };
+		C9CFD6F01B8C18EC00EB5EC3 /* Netwerker.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CFD6EF1B8C18EC00EB5EC3 /* Netwerker.m */; };
+		C9CFD6F51B8CCBA200EB5EC3 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = C9CFD6F41B8CCBA200EB5EC3 /* pokemon.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,11 @@
 		C9CFD6D11B8C067E00EB5EC3 /* PokedexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokedexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9CFD6D61B8C067E00EB5EC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9CFD6D71B8C067E00EB5EC3 /* PokedexTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PokedexTests.m; sourceTree = "<group>"; };
+		C9CFD6EB1B8C171D00EB5EC3 /* Pokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pokemon.h; sourceTree = "<group>"; };
+		C9CFD6EC1B8C171D00EB5EC3 /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pokemon.m; sourceTree = "<group>"; };
+		C9CFD6EE1B8C18EC00EB5EC3 /* Netwerker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Netwerker.h; sourceTree = "<group>"; };
+		C9CFD6EF1B8C18EC00EB5EC3 /* Netwerker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Netwerker.m; sourceTree = "<group>"; };
+		C9CFD6F41B8CCBA200EB5EC3 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		D9DF550CC2C081EC9F6B137D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ED6CA9078BA2357C18690346 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,12 +115,17 @@
 			children = (
 				C9CFD6BF1B8C067E00EB5EC3 /* AppDelegate.h */,
 				C9CFD6C01B8C067E00EB5EC3 /* AppDelegate.m */,
+				C9CFD6EE1B8C18EC00EB5EC3 /* Netwerker.h */,
+				C9CFD6EF1B8C18EC00EB5EC3 /* Netwerker.m */,
 				C9CFD6C21B8C067E00EB5EC3 /* ViewController.h */,
 				C9CFD6C31B8C067E00EB5EC3 /* ViewController.m */,
 				C9CFD6C51B8C067E00EB5EC3 /* Main.storyboard */,
 				C9CFD6C81B8C067E00EB5EC3 /* Images.xcassets */,
 				C9CFD6CA1B8C067E00EB5EC3 /* LaunchScreen.xib */,
 				C9CFD6BB1B8C067E00EB5EC3 /* Supporting Files */,
+				C9CFD6EB1B8C171D00EB5EC3 /* Pokemon.h */,
+				C9CFD6EC1B8C171D00EB5EC3 /* Pokemon.m */,
+				C9CFD6F41B8CCBA200EB5EC3 /* pokemon.csv */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -228,6 +241,7 @@
 			files = (
 				C9CFD6C71B8C067E00EB5EC3 /* Main.storyboard in Resources */,
 				C9CFD6CC1B8C067E00EB5EC3 /* LaunchScreen.xib in Resources */,
+				C9CFD6F51B8CCBA200EB5EC3 /* pokemon.csv in Resources */,
 				C9CFD6C91B8C067E00EB5EC3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,8 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9CFD6C41B8C067E00EB5EC3 /* ViewController.m in Sources */,
+				C9CFD6ED1B8C171D00EB5EC3 /* Pokemon.m in Sources */,
 				C9CFD6C11B8C067E00EB5EC3 /* AppDelegate.m in Sources */,
 				C9CFD6BE1B8C067E00EB5EC3 /* main.m in Sources */,
+				C9CFD6F01B8C18EC00EB5EC3 /* Netwerker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
