@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,69 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokedex_closed" translatesAutoresizingMaskIntoConstraints="NO" id="qoz-JG-Pye">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DbN-3a-z1F" appends="YES" id="NKk-PJ-R0w"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe right to open the Pokedex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXx-R4-5PC">
+                                <rect key="frame" x="65" y="530" width="277" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="S5V-yv-j4N"/>
+                                    <constraint firstAttribute="width" constant="277" id="vva-Ob-ez8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qoz-JG-Pye" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="6R5-XF-VAE"/>
+                            <constraint firstAttribute="centerX" secondItem="qoz-JG-Pye" secondAttribute="centerX" id="8c0-ZA-a7E"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WXx-R4-5PC" secondAttribute="bottom" constant="49" id="GSD-Ac-dK9"/>
+                            <constraint firstItem="qoz-JG-Pye" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Jni-8l-gfB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qoz-JG-Pye" secondAttribute="trailing" constant="-16" id="b8E-mQ-Fpc"/>
+                            <constraint firstItem="WXx-R4-5PC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="49" id="tCv-Uc-QDL"/>
+                            <constraint firstAttribute="centerY" secondItem="qoz-JG-Pye" secondAttribute="centerY" id="v4s-zz-4AH"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qoz-JG-Pye" secondAttribute="bottom" id="zjg-PB-QJ3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="DbN-3a-z1F"/>
             </objects>
+            <point key="canvasLocation" x="343" y="284"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bhm-Jv-PEm">
+            <objects>
+                <viewController id="WEm-bU-bAF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Kn-lO-N53"/>
+                        <viewControllerLayoutGuide type="bottom" id="XWk-CX-meG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ePl-XS-pdP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokedex_open" translatesAutoresizingMaskIntoConstraints="NO" id="9YJ-mb-ajK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yoJ-Xn-KvG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041" y="284"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pokedex_closed" width="640" height="960"/>
+        <image name="pokedex_open" width="640" height="960"/>
+    </resources>
 </document>
