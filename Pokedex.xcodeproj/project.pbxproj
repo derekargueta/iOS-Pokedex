@@ -14,7 +14,6 @@
 		C9CFD6C91B8C067E00EB5EC3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9CFD6C81B8C067E00EB5EC3 /* Images.xcassets */; };
 		C9CFD6CC1B8C067E00EB5EC3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9CFD6CA1B8C067E00EB5EC3 /* LaunchScreen.xib */; };
 		C9CFD6D81B8C067E00EB5EC3 /* PokedexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CFD6D71B8C067E00EB5EC3 /* PokedexTests.m */; };
-		C9CFD6E71B8C0D1C00EB5EC3 /* PokedexMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CFD6E61B8C0D1C00EB5EC3 /* PokedexMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +40,6 @@
 		C9CFD6D11B8C067E00EB5EC3 /* PokedexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokedexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9CFD6D61B8C067E00EB5EC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9CFD6D71B8C067E00EB5EC3 /* PokedexTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PokedexTests.m; sourceTree = "<group>"; };
-		C9CFD6E51B8C0D1C00EB5EC3 /* PokedexMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokedexMainViewController.h; sourceTree = "<group>"; };
-		C9CFD6E61B8C0D1C00EB5EC3 /* PokedexMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokedexMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +86,6 @@
 				C9CFD6C21B8C067E00EB5EC3 /* ViewController.h */,
 				C9CFD6C31B8C067E00EB5EC3 /* ViewController.m */,
 				C9CFD6C51B8C067E00EB5EC3 /* Main.storyboard */,
-				C9CFD6E51B8C0D1C00EB5EC3 /* PokedexMainViewController.h */,
-				C9CFD6E61B8C0D1C00EB5EC3 /* PokedexMainViewController.m */,
 				C9CFD6C81B8C067E00EB5EC3 /* Images.xcassets */,
 				C9CFD6CA1B8C067E00EB5EC3 /* LaunchScreen.xib */,
 				C9CFD6BB1B8C067E00EB5EC3 /* Supporting Files */,
@@ -227,7 +222,6 @@
 			files = (
 				C9CFD6C41B8C067E00EB5EC3 /* ViewController.m in Sources */,
 				C9CFD6C11B8C067E00EB5EC3 /* AppDelegate.m in Sources */,
-				C9CFD6E71B8C0D1C00EB5EC3 /* PokedexMainViewController.m in Sources */,
 				C9CFD6BE1B8C067E00EB5EC3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
