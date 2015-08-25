@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+NSString * const BASE_URL = @"http://pokeapi.co/";
+
 @interface ViewController()
 @property (weak, nonatomic) IBOutlet UIImageView *wallpaper;
 @property (weak, nonatomic) IBOutlet UILabel *openTextLabel;
@@ -99,10 +101,27 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"something happening?");
     Pokemon *tmp = (Pokemon*)[[AppDelegate getList] objectAtIndex:[indexPath row] + 1];
     NSLog(@"%@", tmp.name);
-    pokeView.image = tmp.img;
+    if(tmp.img == nil) {
+        NSLog(@"fetching image");
+        // get photo and cache
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        [manager GET:[NSString stringWithFormat:@"%@media/img/%i.png", BASE_URL, tmp.number]
+          parameters:nil
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 tmp.img = [UIImage imageWithData:(NSData *)responseObject];
+                 pokeView.image = tmp.img;
+             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"Error: %@", error);
+                 // TODO - display a "not available" image
+             }
+         ];
+    } else {
+        NSLog(@"using cached image");
+        pokeView.image = tmp.img;
+    }
 }
 
 @end

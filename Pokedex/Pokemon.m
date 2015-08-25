@@ -10,8 +10,6 @@
 
 @implementation Pokemon
 
-NSString * const BASE_URL = @"http://pokeapi.co/";
-
 - (id)init:(NSString *)name number:(int)num height:(int)height weight:(int)weight baseXP:(int)baseXP {
     self = [super init];
     if(!self) return nil;
@@ -21,17 +19,7 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
     self.height = height;
     self.weight = weight;
     self.baseExperience = baseXP;
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager GET:[NSString stringWithFormat:@"%@media/img/%i.png", BASE_URL, self.number]
-      parameters:nil
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             self.img = [UIImage imageWithData:(NSData *)responseObject];
-         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"Error: %@", error);
-         }
-     ];
+    self.img = nil;
     
     return self;
 }
