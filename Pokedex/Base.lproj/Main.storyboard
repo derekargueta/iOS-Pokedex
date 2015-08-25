@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokedex_open" translatesAutoresizingMaskIntoConstraints="NO" id="qoz-JG-Pye">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="-9" y="0.0" width="618" height="600"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokedex_clear_cover" translatesAutoresizingMaskIntoConstraints="NO" id="13u-nW-5UT">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="-9" y="0.0" width="618" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe right to open the Pokedex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXx-R4-5PC">
                                 <rect key="frame" x="65" y="527" width="277" height="21"/>
@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="width" constant="277" id="vva-Ob-ez8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -40,12 +40,16 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="13u-nW-5UT" secondAttribute="bottom" id="15Y-Rn-QKD"/>
                             <constraint firstItem="qoz-JG-Pye" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="6R5-XF-VAE"/>
                             <constraint firstAttribute="centerX" secondItem="qoz-JG-Pye" secondAttribute="centerX" id="8c0-ZA-a7E"/>
+                            <constraint firstItem="qoz-JG-Pye" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-25" id="B8k-W1-WrU"/>
                             <constraint firstItem="13u-nW-5UT" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="BKK-eD-VUq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="13u-nW-5UT" secondAttribute="trailing" constant="-16" id="DGR-9X-Wyw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="13u-nW-5UT" secondAttribute="trailing" constant="-25" id="DGR-9X-Wyw"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WXx-R4-5PC" secondAttribute="bottom" constant="52" id="GSD-Ac-dK9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qoz-JG-Pye" secondAttribute="trailing" constant="-25" id="Gm2-kO-6TD"/>
                             <constraint firstItem="qoz-JG-Pye" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Jni-8l-gfB"/>
-                            <constraint firstItem="13u-nW-5UT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="P0a-EY-EaN"/>
+                            <constraint firstItem="13u-nW-5UT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-25" id="P0a-EY-EaN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qoz-JG-Pye" secondAttribute="trailing" constant="-16" id="b8E-mQ-Fpc"/>
+                            <constraint firstItem="qoz-JG-Pye" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="eSg-QF-hQG"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qoz-JG-Pye" secondAttribute="bottom" id="gyi-vh-4rt"/>
                             <constraint firstItem="13u-nW-5UT" firstAttribute="width" secondItem="qoz-JG-Pye" secondAttribute="width" id="kPF-U0-lGC"/>
                             <constraint firstItem="WXx-R4-5PC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="49" id="tCv-Uc-QDL"/>
                             <constraint firstAttribute="centerY" secondItem="qoz-JG-Pye" secondAttribute="centerY" id="v4s-zz-4AH"/>
@@ -54,8 +58,12 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="kPF-U0-lGC"/>
+                                <exclude reference="6R5-XF-VAE"/>
                                 <exclude reference="8c0-ZA-a7E"/>
+                                <exclude reference="Jni-8l-gfB"/>
+                                <exclude reference="b8E-mQ-Fpc"/>
                                 <exclude reference="v4s-zz-4AH"/>
+                                <exclude reference="zjg-PB-QJ3"/>
                             </mask>
                         </variation>
                     </view>

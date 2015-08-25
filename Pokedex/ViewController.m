@@ -29,7 +29,7 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
     [super viewDidLoad];
     
     pokeTable = [[UITableView alloc] init];
-    pokeTable.frame = CGRectMake(10, 270, 140, 230);
+    pokeTable.frame = CGRectMake(10, 270, 140, 310);
     pokeTable.dataSource = self;
     pokeTable.delegate = self;
     pokeTable.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -41,6 +41,7 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
     pokeView.frame = CGRectMake(200, 270, 150, 230);
     [pokeView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:pokeView];
+  
     
     // set up swipe-right to open the pokedex
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self
@@ -89,8 +90,6 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
     
     cell.backgroundView = [[UIView alloc] init];
     [cell.backgroundView setBackgroundColor:[UIColor clearColor]];
-//    [[[cell contentView] subviews] makeObjectsPerformSelector:@selector]
-    
     
     Pokemon *tmpPoke = (Pokemon *)[[AppDelegate getList] objectAtIndex:[indexPath row] + 1];
     cell.textLabel.text = tmpPoke.name;
@@ -102,7 +101,6 @@ NSString * const BASE_URL = @"http://pokeapi.co/";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Pokemon *tmp = (Pokemon*)[[AppDelegate getList] objectAtIndex:[indexPath row] + 1];
-    NSLog(@"%@", tmp.name);
     if(tmp.img == nil) {
         NSLog(@"fetching image");
         // get photo and cache
